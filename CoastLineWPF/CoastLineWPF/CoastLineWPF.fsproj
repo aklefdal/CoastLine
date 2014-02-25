@@ -10,7 +10,7 @@
     <RootNamespace>CoastLineWPF</RootNamespace>
     <AssemblyName>CoastLineWPF</AssemblyName>
     <targetframeworkversion>v4.5</targetframeworkversion>
-    <TargetFSharpCoreVersion>4.3.0.0</TargetFSharpCoreVersion>
+    <TargetFSharpCoreVersion>4.3.1.0</TargetFSharpCoreVersion>
     <Name>CoastLineWPF</Name>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
