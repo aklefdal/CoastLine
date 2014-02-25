@@ -4,8 +4,14 @@ namespace CoastLine
 
 open System
 open System.IO
+open System.Globalization
 
 module Data =
+
+    let ni = CultureInfo.InstalledUICulture.NumberFormat.Clone() :?> NumberFormatInfo
+    ni.NumberDecimalSeparator <- "."
+    
+    let ParseDouble s = Double.Parse(s, ni)
 
     let private FilterCount minCount groups =
         groups
@@ -14,7 +20,7 @@ module Data =
     let private ToPoints (lines : array<string>) =
         lines
         |> Array.Parallel.map (fun line -> line.Split [|'\t'|])
-        |> Array.Parallel.map (fun items -> items |> Array.map Double.Parse) 
+        |> Array.Parallel.map (fun items -> items |> Array.map ParseDouble) 
         |> Array.choose (fun doubles -> match doubles with
                                         | [|long; lat|] -> Some {Long=long; Lat=lat}
                                         | _ -> None)
